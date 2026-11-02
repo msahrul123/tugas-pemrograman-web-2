@@ -3,5 +3,5 @@
        {{ $title }}
     </x-slot>
 
-    <a class="btn btn-danger" href="/game" role="button">back to Game</a>
+    <a class="btn btn-danger" href="{{ route('game.index') }}" role="button">back to Game</a>
 </x-app>
