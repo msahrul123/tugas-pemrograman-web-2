@@ -3,8 +3,8 @@
         {{ $title }}
     </x-slot>
 
-    <a class="btn btn-danger" href="{{ route('game.create') }}" role="button">create Game</a>
-    <table class="table">
+    <a class="btn btn-danger mb-3" href="{{ route('game.create') }}" role="button">create Game</a>
+    <table class="table table-bordered border-danger table-hover">
         <thead>
             <tr>
                 <th scope="col">#</th>

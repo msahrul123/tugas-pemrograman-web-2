@@ -13,7 +13,7 @@ class GameController extends Controller
     public function index()
     {
 
-        return view('game.index', ['title' => 'Game','games' => Game ::all()
+        return view('game.index', ['title' => 'Game','games' => Game ::latest()->get(),
         ]);
     }
 
@@ -30,7 +30,25 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    $validated = $request->validate([
+    'title' => 'required',
+    'platform' => 'required',
+    'genre' => 'required',
+    'developer' => 'required',
+    'release_year' => 'required',
+    ],
+    [
+    'title.required'        => 'Judul game wajib di input',
+    'platform.required'     => 'Platform wajib di input',
+    'genre.required'        => 'Genre wajib di input',
+    'developer.required'    => 'Developer wajib di input',
+    'release_year.required' => 'Tahun rilis wajib di input',
+]
+    );
+ 
+ Game::create($validated);
+ 
+    return redirect('/game');
     }
 
     /**

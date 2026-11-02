@@ -9,3 +9,4 @@
 
         Route::get('/game/', [GameController::class, 'index'])->name('game.index');
         Route::get('/game/create', [GameController::class, 'create'])->name('game.create');
+        Route::post('/game/store', [GameController::class, 'store'])->name('game.store');
