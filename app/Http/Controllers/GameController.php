@@ -48,7 +48,7 @@ class GameController extends Controller
  
  Game::create($validated);
  
-    return redirect('/game');
+ return to_route('game.index')-> withSuccess('data berhasil di tambahkan');
     }
 
     /**
@@ -62,17 +62,35 @@ class GameController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Game $game)
     {
-        //
+        return view('game.edit', ['title' => 'edit Game','game' => $game,
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Game $game)
     {
-        //
+     $validated = $request->validate([
+    'title' => 'required',
+    'platform' => 'required',
+    'genre' => 'required',
+    'developer' => 'required',
+    'release_year' => 'required',
+    ],
+    [
+    'title.required'        => 'Judul game wajib di input',
+    'platform.required'     => 'Platform wajib di input',
+    'genre.required'        => 'Genre wajib di input',
+    'developer.required'    => 'Developer wajib di input',
+    'release_year.required' => 'Tahun rilis wajib di input',
+]
+    );
+$game->update($validated);
+
+ return to_route('game.index')-> withSuccess('data berhasil di ubah');
     }
 
     /**
