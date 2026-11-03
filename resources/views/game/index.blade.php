@@ -34,6 +34,13 @@
                     <td>{{ $game->release_year }}</td>
                     <td>
                         <a class="btn btn-secondary" href="{{ route('game.edit', $game) }}" role="button">edit</a>
+                        <form method="POST" action="{{ route('game.destroy', $game) }}" class="d-inline">
+    @csrf
+    @method('DELETE')
+    <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">delete</button>
+</form>
+        
+                         </form>
                     </td>
                 </tr>
             @endforeach

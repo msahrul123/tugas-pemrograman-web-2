@@ -96,8 +96,10 @@ $game->update($validated);
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Game $game)
     {
-        //
+      $game->delete();
+
+ return to_route('game.index')-> withSuccess('data berhasil di hapus');
     }
 }
