@@ -12,7 +12,8 @@ class PembeliController extends Controller
      */
     public function index()
     {
-        
+        return view('pembeli.index', ['title' => 'Pembeli','pembelis' => Pembeli ::latest()->get(),
+]);
     }
 
     /**
