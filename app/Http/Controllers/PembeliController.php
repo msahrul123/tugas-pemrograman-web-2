@@ -57,7 +57,10 @@ class PembeliController extends Controller
      */
     public function show(Pembeli $pembeli)
     {
-        //
+return view('pembeli.show', [
+        'title' => 'Detail Pembeli: ' . $pembeli->pembeli,
+        'pembeli' => $pembeli,
+    ]);
     }
 
     /**

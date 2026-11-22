@@ -31,6 +31,7 @@
                     <td>{{ $pembeli->telepon }}</td>
                     <td>{{ $pembeli->alamat }}</td>
                     <td>
+                        <a class="btn btn-info" href="{{ route('pembeli.show', $pembeli) }}" role="button">Detail</a>
                         <a class="btn btn-secondary" href="{{ route('pembeli.edit', $pembeli) }}" role="button">edit</a>
                         <form method="POST" action="{{ route('pembeli.destroy', $pembeli) }}" class="d-inline">
                             @csrf
