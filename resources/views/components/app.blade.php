@@ -8,6 +8,21 @@
   </head>
  
   <body>
+    {{-- nav --}}
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+  <div class="container">
+    <a class="navbar-brand" href="#">Penjualan game</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav ms-auto">
+        <a class="nav-link active" href="{{ route('game.index') }}">Game</a>
+  
+      </div>
+    </div>
+  </div>
+</nav>
     {{-- title --}}
 
 <div class="bg-danger py-5 text-center text-white">
