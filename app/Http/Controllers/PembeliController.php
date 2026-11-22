@@ -19,9 +19,11 @@ class PembeliController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+   public function create()
     {
-        //
+        return view('pembeli.create', [
+            'title' => 'Create Pembeli',
+        ]);
     }
 
     /**
@@ -29,7 +31,25 @@ class PembeliController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate(
+            [
+                'pembeli' => 'required',
+                'email' => 'required|email|unique:pembelis,email',
+                'telepon' => 'required',
+                'alamat' => 'required',
+            ],
+            [
+                'pembeli.required' => 'Nama pembeli wajib di input',
+                'email.required' => 'Email wajib di input',
+                'email.email' => 'Format email tidak valid',
+                'email.unique' => 'Email sudah terdaftar',
+                'telepon.required' => 'Telepon wajib di input',
+                'alamat.required' => 'Alamat wajib di input',
+            ]
+        );
+
+        Pembeli::create($validated);
+        return to_route('pembeli.index')->withSuccess('Data berhasil ditambahkan');
     }
 
     /**
