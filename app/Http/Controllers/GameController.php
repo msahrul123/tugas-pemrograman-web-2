@@ -54,9 +54,12 @@ class GameController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Game $game)
     {
-        //
+    return view('game.show', [
+        'title' => 'Detail Game',
+        'game' => $game,
+    ]);
     }
 
     /**

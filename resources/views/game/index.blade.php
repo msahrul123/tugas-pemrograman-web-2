@@ -11,7 +11,7 @@
 
     <a class="btn btn-danger mb-3" href="{{ route('game.create') }}" role="button">create Game</a>
     
-    <table class="table table-bordered border-danger table-hover">
+    <table id="example" class="table table-bordered border-danger table-hover">
         <thead>
             <tr>
                 <th scope="col">#</th>
@@ -33,6 +33,7 @@
                     <td>{{ $game->developer }}</td>
                     <td>{{ $game->release_year }}</td>
                     <td>
+                        <a class="btn btn-info" href="{{ route('game.show', $game) }}" role="button">Detail</a>
                         <a class="btn btn-secondary" href="{{ route('game.edit', $game) }}" role="button">edit</a>
                         <form method="POST" action="{{ route('game.destroy', $game) }}" class="d-inline">
     @csrf

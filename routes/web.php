@@ -13,5 +13,6 @@ use Illuminate\Support\Facades\Route;
         Route::get('/game/{game}/edit', [GameController::class, 'edit'])->name('game.edit');
         Route::put('/game/{game}/update', [GameController::class, 'update'])->name('game.update');
         Route::delete('/game/{game}', [GameController::class, 'destroy'])->name('game.destroy');
+        Route::get('/game/{game}', [GameController::class, 'show'])->name('game.show');
         Route::resource('pembeli', PembeliController::class);
         Route::resource('riwayatPembelian', RiwayatPembelianController::class);

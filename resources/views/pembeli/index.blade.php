@@ -11,7 +11,7 @@
 
         <a class="btn btn-danger mb-3" href="{{ route('pembeli.create') }}" role="button">create Pembeli</a>
 
-        <table class="table table-bordered border-danger table-hover">
+        <table id="example" class="table table-bordered border-danger table-hover">
             <thead>
                 <tr>
                     <th scope="col">#</th>
