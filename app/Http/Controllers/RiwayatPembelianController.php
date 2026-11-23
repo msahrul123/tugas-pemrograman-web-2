@@ -120,6 +120,8 @@ class RiwayatPembelianController extends Controller
      */
     public function destroy(RiwayatPembelian $riwayatPembelian)
     {
-        //
+       $riwayatPembelian->delete();
+
+        return to_route('riwayatPembelian.index')->withSuccess('Data riwayat pembelian berhasil dihapus');
     }
 }
