@@ -12,7 +12,10 @@ class RiwayatPembelianController extends Controller
      */
    public function index()
 {
-
+    return view('riwayatpembelian.index', [
+'title' => 'Riwayat Pembelian',
+'riwayatPembelians' => RiwayatPembelian::with('pembeli')->latest()->get(),
+]);
 }
 
     /**

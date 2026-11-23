@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GameController;
 use App\Http\Controllers\PembeliController;
+use App\Http\Controllers\RiwayatPembelianController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -13,3 +14,4 @@ use Illuminate\Support\Facades\Route;
         Route::put('/game/{game}/update', [GameController::class, 'update'])->name('game.update');
         Route::delete('/game/{game}', [GameController::class, 'destroy'])->name('game.destroy');
         Route::resource('pembeli', PembeliController::class);
+        Route::resource('riwayatPembelian', RiwayatPembelianController::class);

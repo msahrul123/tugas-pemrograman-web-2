@@ -22,6 +22,7 @@
                 <div class="navbar-nav ms-auto">
                     <a class="nav-link active" href="{{ route('game.index') }}">Game</a>
                     <a class="nav-link" href="{{ route('pembeli.index') }}">Pembeli</a>
+                    <a class="nav-link" href="{{ route('riwayatPembelian.index') }}">Riwayat Pembelian</a>
                 </div>
             </div>
         </div>
