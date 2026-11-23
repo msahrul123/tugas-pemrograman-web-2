@@ -76,7 +76,11 @@ class RiwayatPembelianController extends Controller
      */
     public function edit(RiwayatPembelian $riwayatPembelian)
     {
-        //
+        return view('riwayatpembelian.edit', [
+            'title' => 'Edit Riwayat Pembelian',
+            'riwayatPembelian' => $riwayatPembelian,
+            'pembelis' => Pembeli::all(),
+        ]);
     }
 
     /**
@@ -84,7 +88,31 @@ class RiwayatPembelianController extends Controller
      */
     public function update(Request $request, RiwayatPembelian $riwayatPembelian)
     {
-        //
+        $validated = $request->validate(
+            [
+                'pembeli_id' => 'required|exists:pembelis,id',
+                'judul_game' => 'required',
+                'jenis' => 'required',
+                'tanggal' => 'required|date',
+                'total_bayar' => 'required|numeric|min:0',
+                'metode' => 'required',
+                'status' => 'required',
+            ],
+            [
+                'pembeli_id.required' => 'Pembeli wajib dipilih',
+                'judul_game.required' => 'Judul game wajib di input',
+                'jenis.required' => 'Jenis wajib dipilih',
+                'tanggal.required' => 'Tanggal wajib di input',
+                'total_bayar.required' => 'Total bayar wajib di input',
+                'total_bayar.numeric' => 'Total bayar harus berupa angka',
+                'metode.required' => 'Metode pembayaran wajib dipilih',
+                'status.required' => 'Status wajib dipilih',
+            ]
+        );
+
+        $riwayatPembelian->update($validated);
+
+        return to_route('riwayatPembelian.index')->withSuccess('Data riwayat pembelian berhasil diubah');
     }
 
     /**
