@@ -68,7 +68,10 @@ class RiwayatPembelianController extends Controller
      */
     public function show(RiwayatPembelian $riwayatPembelian)
     {
-        //
+        return view('riwayatpembelian.show', [
+            'title' => 'Detail Riwayat Pembelian',
+            'riwayatPembelian' => $riwayatPembelian,
+        ]);
     }
 
     /**

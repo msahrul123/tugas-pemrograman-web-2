@@ -38,6 +38,7 @@
                     <td>{{ $riwayatPembelian->metode }}</td>
                     <td>{{ $riwayatPembelian->status }}</td>
                     <td>
+                        <a class="btn btn-info" href="{{ route('riwayatPembelian.show', $riwayatPembelian) }}" role="button">Detail</a>
                         <a class="btn btn-secondary" href="{{ route('riwayatPembelian.edit', $riwayatPembelian) }}"
                             role="button">edit</a>
                         <form method="POST" action="{{ route('riwayatPembelian.destroy', $riwayatPembelian) }}"
